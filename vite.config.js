@@ -5,7 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig(({ command, mode }) => {
   // Detect if building for GitHub Pages
   const isGitHubPages = mode === 'github-pages' || process.env.GITHUB_PAGES === 'true'
-  const baseUrl = isGitHubPages ? '/YOUR_REPOSITORY_NAME/' : '/'
+  const baseUrl = isGitHubPages ? '/agig2/' : '/'
   
   return {
     base: baseUrl,
