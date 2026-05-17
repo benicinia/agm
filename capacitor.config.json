@@ -1,0 +1,23 @@
+{
+  "appId": "com.terminal.ags",
+  "appName": "ags",
+  "webDir": "dist",
+  "server": {
+    "url": "http://192.168.137.105:5173",
+    "cleartext": true
+  },
+  "plugins": {
+    "extConfig": {},
+    "CapacitorUpdater": {
+      "appId": "com.terminal.ags",
+      "version": "0.0.0",
+      "autoUpdate": true,
+      "directUpdate": "always",
+      "autoSplashscreen": true,
+      "publicKey": "-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAl8r3uNNrC/fp9gUiLyUjfz4+zh5I00uGs0ssq+8IgxVbHq54mkfw\nyJbmhm9/SettmWw1qkGUaYVtl8OB5rAt8zR5+rPcyKUhCudsu3Y1wibdWZHVBhkE\nUY9VKMaeXU58M51zeMBdgfzP6YVumijR5rYIUGES7tOaT4pr5HWJWndoeNtW6yKI\n7wyhHCen0zNs2uhKOktaRhY8yCfFInCBKtpxNshp3Mk9lhaDnyV7gbGfMYhgU00+\nLzQNfOqfTELLp+WfQ8uq0YUpUyYDLdN928a5VcifPHPboamFaUdj+g7/Yz2P3Uwz\nLuviEAfLU+mfx3XtT9sQ5Y6dKvybuP0bOQIDAQAB\n-----END RSA PUBLIC KEY-----\n"
+    },
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}

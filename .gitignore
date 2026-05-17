@@ -1,0 +1,51 @@
+
+# Dependencies
+node_modules/
+.cache/
+
+# Build outputs
+dist/
+build/
+.capacitor/
+
+# Android
+android/.gradle/
+android/.idea/
+android/local.properties
+android/captured/
+android/build/
+android/app/build/
+android/*.iml
+android/*.keystore
+android/*.jks
+
+# iOS (if you add later)
+ios/.build/
+ios/Pods/
+ios/Podfile.lock
+ios/.idea/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS
+Thumbs.db
+
+# Capacitor temporary
+capacitor.config.json.bak

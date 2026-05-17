@@ -1,0 +1,74 @@
+/* fallback */
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./syl7-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjpZIvDmUSVOK7BDB_Qb9vUSzq3wzLK-P0J-V_Zs-obHph2-jOcZTKPq8a9A5M.woff2) format('woff2');
+}
+
+    .saved-documents-section {
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+    .saved-documents-list {
+        max-height: 300px;
+        overflow-y: auto;
+        margin-top: 10px;
+    }
+    
+    .document-item {
+        padding: 8px 12px;
+        margin: 5px 0;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    
+    .document-item:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .document-name {
+        font-weight: 500;
+        margin-bottom: 3px;
+    }
+    
+    .document-meta {
+        font-size: 0.8em;
+        opacity: 0.8;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .no-documents, .error {
+        padding: 10px;
+        text-align: center;
+        opacity: 0.7;
+    }
+    
+    /* Style for different document types */
+    .type-research { color: #4CAF50; }
+    .type-legal { color: #2196F3; }
+    .type-financial { color: #FFC107; }
+    .type-certificate { color: #9C27B0; }
+    .type-id { color: #F44336; }
+    .type-other { color: #9E9E9E; }
+
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}

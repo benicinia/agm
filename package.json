@@ -1,0 +1,50 @@
+{
+  "name": "AGIG",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:web": "vite build --mode production",
+    "build:github": "GITHUB_PAGES=true vite build --mode github-pages",
+    "preview": "vite preview",
+    "android:sync": "npx cap sync android",
+    "android:build": "cd android && ./gradlew assembleDebug",
+    "android:build:release": "cd android && ./gradlew assembleRelease",
+    "android:apk": "npm run build && npm run android:sync && npm run android:build",
+    "android:apk:release": "npm run build && npm run android:sync && npm run android:build:release",
+    "android:clean": "cd android && ./gradlew clean",
+    "android:open": "npx cap open android",
+    "deploy": "npm run build:github && gh-pages -d dist",
+    "predeploy": "npm run build:github",
+    "postinstall": "npx cap sync android"
+  },
+  "homepage": "https://YOUR_USERNAME.github.io/YOUR_REPOSITORY_NAME",
+  "dependencies": {
+    "@capacitor-community/sqlite": "^8.1.0",
+    "@capacitor/android": "^8.3.3",
+    "@capacitor/cli": "^8.3.3",
+    "@capacitor/core": "^8.3.3",
+    "@capacitor/device": "^8.0.2",
+    "@capacitor/filesystem": "^8.1.2",
+    "@capgo/capacitor-updater": "^8.45.11",
+    "@capgo/cli": "^7.95.15",
+    "@huggingface/transformers": "^4.2.0",
+    "compromise": "^14.14.4",
+    "idb": "^8.0.3",
+    "onnxruntime-web": "^1.26.0",
+    "pdfjs-dist": "^5.4.394",
+    "preact": "^10.19.0",
+    "preact-router": "^4.1.2",
+    "sql.js": "^1.14.1",
+    "tesseract.js": "^6.0.1"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.8.0",
+    "gh-pages": "^6.1.1",
+    "vite": "^7.2.2",
+    "vite-plugin-pwa": "^1.2.0",
+    "workbox-window": "^7.0.0"
+  }
+}
