@@ -3,9 +3,8 @@ import preact from '@preact/preset-vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig(({ command, mode }) => {
-  // Detect if building for GitHub Pages
-  const isGitHubPages = mode === 'github-pages' || process.env.GITHUB_PAGES === 'true'
-  const baseUrl = isGitHubPages ? '/agig2/' : '/'
+  // Force GitHub Pages base for production builds
+  const baseUrl = '/agig2/'
   
   return {
     base: baseUrl,
@@ -14,15 +13,14 @@ export default defineConfig(({ command, mode }) => {
       VitePWA({
         registerType: 'autoUpdate',
         workbox: {
-          maximumFileSizeToCacheInBytes: 30 * 1024 * 1024, // 30MB limit
+          maximumFileSizeToCacheInBytes: 30 * 1024 * 1024,
           globPatterns: ['**/*.{js,css,html,wasm,wasm.js,webmanifest}'],
-          // Exclude very large files that should be downloaded on demand
           globIgnores: [
             '**/tesseract-core.wasm*',
             '**/ort-wasm*.wasm',
             '**/magick.wasm',
-            '**/*.onnx',  // Don't cache model files
-            '**/*.model'   // Don't cache downloaded models
+            '**/*.onnx',
+            '**/*.model'
           ]
         },
         manifest: {
@@ -32,8 +30,8 @@ export default defineConfig(({ command, mode }) => {
           theme_color: '#667eea',
           background_color: '#ffffff',
           display: 'standalone',
-          start_url: baseUrl,
-          scope: baseUrl,
+          start_url: '/agig2/',
+          scope: '/agig2/',
           icons: [
             {
               src: 'icons/icon-72.png',
@@ -81,10 +79,9 @@ export default defineConfig(({ command, mode }) => {
       })
     ],
     server: {
-      host: '0.0.0.0', // Makes dev server accessible on LAN
+      host: '0.0.0.0',
       port: 5173,
       strictPort: false,
-      // Proxy for API requests during development
       proxy: {
         '/api': {
           target: 'http://localhost:3000',
@@ -96,13 +93,11 @@ export default defineConfig(({ command, mode }) => {
     build: {
       outDir: 'dist',
       sourcemap: true,
-      // Ensure wasm files are handled correctly
-      assetsInlineLimit: 0, // Don't inline any assets as base64
-      chunkSizeWarningLimit: 1000, // Increase warning limit for large chunks
+      assetsInlineLimit: 0,
+      chunkSizeWarningLimit: 1000,
       rollupOptions: {
         output: {
           manualChunks: {
-            // Separate large WASM-related chunks
             'wasm-runtime': ['onnxruntime-web', '@huggingface/transformers'],
             'ocr-engine': ['tesseract.js'],
             'pdf-processor': ['pdfjs-dist'],
@@ -116,18 +111,15 @@ export default defineConfig(({ command, mode }) => {
       exclude: ['onnxruntime-web', '@huggingface/transformers'],
       include: ['tesseract.js', 'pdfjs-dist', 'compromise']
     },
-    // Ensure proper MIME types for WASM files
     resolve: {
       alias: {
-        // Add any aliases if needed
         'react': 'preact/compat',
         'react-dom': 'preact/compat'
       }
     },
-    // Environment variables for different builds
     define: {
       'import.meta.env.VITE_BUILD_TIME': JSON.stringify(new Date().toISOString()),
-      'import.meta.env.VITE_IS_GITHUB_PAGES': JSON.stringify(isGitHubPages),
+      'import.meta.env.VITE_IS_GITHUB_PAGES': JSON.stringify(true),
       'import.meta.env.VITE_APP_VERSION': JSON.stringify(process.env.npm_package_version || '1.0.0')
     }
   }
